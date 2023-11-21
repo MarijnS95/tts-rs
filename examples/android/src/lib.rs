@@ -4,6 +4,7 @@ use tts::*;
 // Without it, the `TTS` instance gets dropped before callbacks can run.
 #[allow(unreachable_code)]
 fn run() -> Result<(), Error> {
+    println!("Run!");
     let mut tts = Tts::default()?;
     let Features {
         utterance_callbacks,
@@ -66,5 +67,6 @@ fn run() -> Result<(), Error> {
 
 #[cfg_attr(target_os = "android", ndk_glue::main(backtrace = "on"))]
 pub fn main() {
+    println!("main()!");
     run().expect("Failed to run");
 }

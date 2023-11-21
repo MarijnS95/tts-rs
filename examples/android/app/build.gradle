@@ -6,7 +6,7 @@ plugins {
 android {
     namespace "rs.tts"
     compileSdkVersion 33
-    ndkVersion "25.1.8937393"
+    ndkVersion "26.1.10909125"
     defaultConfig {
         applicationId "rs.tts"
         minSdkVersion 21
@@ -33,9 +33,10 @@ dependencies {
 apply plugin: "org.mozilla.rust-android-gradle.rust-android"
 
 cargo {
-    module  = "."
+    module = "."
     libname = "tts"
-    targets = ["arm", "x86"]
+    targets = ["arm64"]
+//    targets = ["arm", "x86"]
 }
 
 tasks.whenTaskAdded { task ->

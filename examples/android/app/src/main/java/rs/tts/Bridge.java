@@ -19,6 +19,5 @@ public class Bridge extends UtteranceProgressListener implements TextToSpeech.On
 
     public native void onDone(String utteranceId);
 
-    public native void onError(String utteranceId) ;
-
+    public native void onError(String utteranceId);
 }
