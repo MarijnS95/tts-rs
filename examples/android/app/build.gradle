@@ -9,12 +9,12 @@ plugins {
 
 android {
     namespace "rs.tts"
-    compileSdkVersion 33
+    compileSdkVersion 34
     ndkVersion "26.1.10909125"
     defaultConfig {
         applicationId "rs.tts"
         minSdkVersion 21
-        targetSdkVersion 33
+        targetSdkVersion 34
         versionCode 1
         versionName "1.0"
     }
@@ -28,11 +28,15 @@ android {
 }
 
 dependencies {
-    implementation "androidx.core:core-ktx:1.2.0"
-    implementation "androidx.annotation:annotation:1.1.0"
-    implementation "com.google.android.material:material:1.1.0"
-    implementation "androidx.constraintlayout:constraintlayout:1.1.3"
+    implementation "androidx.core:core-ktx:1.12.0"
 }
+
+//cargo {
+//    module = "."
+//    libname = "tts"
+//    targets = ["arm64"]
+////    targets = ["arm", "x86"]
+//}
 
 cargo {
     module = "."
@@ -49,3 +53,14 @@ project.afterEvaluate {
         }
     }
 }
+
+//project.afterEvaluate {
+//    android.applicationVariants.all { variant ->
+//        task "run${variant.name.capitalize()}"(type: Exec, dependsOn: "install${variant.name.capitalize()}", group: "run") {
+//            commandLine = ["adb", "shell", "monkey", "-p", variant.applicationId + " 1"]
+//            doLast {
+//                println "Launching ${variant.applicationId}"
+//            }
+//        }
+//    }
+//}
